@@ -1,0 +1,23 @@
+server:
+  port: 3401
+  servlet:
+    context-path: /gateway
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: gateway
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:3101/eureka/eureka/
+
+spring:
+  application:
+    name: gateway
+  aop:
+    proxy-target-class: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
